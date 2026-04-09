@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>For My Girls 💖</title>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      overflow: hidden;
+      background: #b3e5fc;
+    }
+
+    .page {
+      display: none;
+      height: 100vh;
+      width: 100%;
+      text-align: center;
+      position: relative;
+      padding: 20px;
+    }
+
+    .active {
+      display: block;
+    }
+
+    /* HOME */
+    .hero-image {
+      width: 100%;
+      height: 45vh;
+      object-fit: cover;
+    }
+
+    h1 {
+      margin: 20px 0;
+      font-size: 42px;
+    }
+
+    .buttons {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      align-items: center;
+    }
+
+    button {
+      padding: 12px 30px;
+      font-size: 20px;
+      border: none;
+      border-radius: 20px;
+      cursor: pointer;
+      background: #ff80ab;
+      color: white;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      transform: scale(1.1);
+      background: #ff4081;
+    }
+
+    /* PAGES */
+    .fun-page {
+      background: #fff0f6;
+    }
+
+    .big-text {
+      font-size: 48px;
+      font-weight: bold;
+      margin-top: 120px;
+    }
+
+    .small-text {
+      font-size: 20px;
+      margin-top: 20px;
+      color: #555;
+    }
+
+    .back-btn {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      background: #90caf9;
+    }
+
+    /* FLOATING */
+    .floating {
+      position: absolute;
+      animation: float 6s infinite ease-in-out;
+      font-size: 24px;
+      opacity: 0.7;
+    }
+
+    @keyframes float {
+      0% { transform: translateY(0); }
+      50% { transform: translateY(-100px); }
+      100% { transform: translateY(0); }
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- HOME -->
+<div id="home" class="page active">
+  <img class="hero-image" src="https://images.unsplash.com/photo-1506744038136-46273834b3fb" />
+  <h1>πάτα το όνομά σου</h1>
+
+  <div class="buttons">
+    <button onclick="goToPage('yasemi')">Γιασεμί</button>
+    <button onclick="goToPage('eva')">Εύα</button>
+    <button onclick="goToPage('eirini')">Ειρήνη</button>
+    <button onclick="goToPage('sofia')">Σοφία</button>
+  </div>
+</div>
+
+<!-- YASEMI -->
+<div id="yasemi" class="page fun-page">
+  <button class="back-btn" onclick="goHome()">⬅ Πίσω</button>
+  <div class="big-text">Η πιο iconic παρουσία που έχει υπάρξει ποτέ 😎✨</div>
+  <div class="small-text">τα λέμε κούκλα 💖</div>
+</div>
+
+<!-- EVA -->
+<div id="eva" class="page fun-page">
+  <button class="back-btn" onclick="goHome()">⬅ Πίσω</button>
+  <div class="big-text">Εσύ δεν περπατάς… μπήκες στη σκηνή και όλοι σε κοιτάνε 🎬🔥</div>
+  <div class="small-text">τα λέμε κούκλα 💖</div>
+</div>
+
+<!-- EIRINI -->
+<div id="eirini" class="page fun-page">
+  <button class="back-btn" onclick="goHome()">⬅ Πίσω</button>
+  <div class="big-text">Το vibe σου είναι άλλο level, δεν αντιγράφεται 🚀🌸</div>
+  <div class="small-text">τα λέμε κούκλα 💖</div>
+</div>
+
+<!-- SOFIA -->
+<div id="sofia" class="page fun-page">
+  <button class="back-btn" onclick="goHome()">⬅ Πίσω</button>
+  <div class="big-text">Είσαι το plot twist που δεν είδε κανείς να έρχεται 😏✨</div>
+  <div class="small-text">τα λέμε κούκλα 💖</div>
+</div>
+
+<script>
+  function goToPage(id) {
+    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+    createHearts();
+  }
+
+  function goHome() {
+    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+    document.getElementById('home').classList.add('active');
+  }
+
+  function createHearts() {
+    for (let i = 0; i < 15; i++) {
+      const el = document.createElement('div');
+      el.classList.add('floating');
+      el.innerHTML = ["💖","🌸","🌼","🐻"][Math.floor(Math.random()*4)];
+      el.style.left = Math.random() * 100 + "vw";
+      el.style.top = Math.random() * 100 + "vh";
+      el.style.animationDuration = (3 + Math.random() * 5) + "s";
+      document.body.appendChild(el);
+
+      setTimeout(() => {
+        el.remove();
+      }, 6000);
+    }
+  }
+</script>
+
+</body>
+</html>
