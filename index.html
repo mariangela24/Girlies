@@ -119,7 +119,7 @@
   <h1>πάτα το όνομά σου</h1>
 
   <div class="buttons">
-    <button onclick="goToPage('yasemi')">Γιασεμί</button>
+    <button onclick="goToPage('yasemi')">Γιασεμή</button>
     <button onclick="goToPage('eva')">Εύα</button>
     <button onclick="goToPage('eirini')">Ειρήνη</button>
     <button onclick="goToPage('sofia')">Σοφία</button>
@@ -128,29 +128,25 @@
 
 <!-- YASEMI -->
 <div id="yasemi" class="page fun-page">
-  <button class="back-btn" onclick="goHome()">⬅ Πίσω</button>
-  <div class="big-text">Η πιο iconic παρουσία που έχει υπάρξει ποτέ 😎✨</div>
+  <div class="big-text">Φάντη πούτσα μου 😎✨</div>
   <div class="small-text">τα λέμε κούκλα 💖</div>
 </div>
 
 <!-- EVA -->
 <div id="eva" class="page fun-page">
-  <button class="back-btn" onclick="goHome()">⬅ Πίσω</button>
-  <div class="big-text">Εσύ δεν περπατάς… μπαίνεις και αλλάζει η ατμόσφαιρα 🎬🔥</div>
+  <div class="big-text">Η ζιζελ παραμονεύει να σε γκαστρώσει 🎬🔥</div>
   <div class="small-text">τα λέμε κούκλα 💖</div>
 </div>
 
 <!-- EIRINI -->
 <div id="eirini" class="page fun-page">
-  <button class="back-btn" onclick="goHome()">⬅ Πίσω</button>
-  <div class="big-text">Το vibe σου δεν συγκρίνεται — είναι άλλο level 🚀🌸</div>
+  <div class="big-text">Κινούμενη μουνότριχα 🚀🌸</div>
   <div class="small-text">τα λέμε κούκλα 💖</div>
 </div>
 
 <!-- SOFIA -->
 <div id="sofia" class="page fun-page">
-  <button class="back-btn" onclick="goHome()">⬅ Πίσω</button>
-  <div class="big-text">Είσαι το plot twist που κάνει τη ζωή πιο ενδιαφέρουσα 😏✨</div>
+  <div class="big-text">Σωτήρη γύρνα πίσω 😏✨</div>
   <div class="small-text">τα λέμε κούκλα 💖</div>
 </div>
 
@@ -234,21 +230,21 @@
     document.getElementById('home').classList.add('active');
   }
 
-  function createHearts() {
-    for (let i = 0; i < 15; i++) {
-      const el = document.createElement('div');
-      el.classList.add('floating');
-      el.innerHTML = ["💖","🌸","🌼","🐻"][Math.floor(Math.random()*4)];
-      el.style.left = Math.random() * 100 + "vw";
-      el.style.top = Math.random() * 100 + "vh";
-      el.style.animationDuration = (3 + Math.random() * 5) + "s";
-      document.body.appendChild(el);
+function createHearts() {
+  const heartsContainer = document.getElementById("hearts");
 
-      setTimeout(() => {
-        el.remove();
-      }, 6000);
-    }
+  const icons = ["❤️","💖","✨","🪷","🌼","🌷"];
+
+  for (let i = 0; i < 40; i++) {
+    let heart = document.createElement("div");
+    heart.className = "heart";
+    heart.innerHTML = icons[Math.floor(Math.random() * icons.length)];
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.animationDuration = (Math.random() * 3 + 2) + "s";
+
+    heartsContainer.appendChild(heart);
   }
+}
 </script>
 
 </body>
